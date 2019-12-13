@@ -14,6 +14,16 @@ USER root
 RUN apt-get update
 RUN apt-get install -y curl
 
+# TODO
+RUN apt-get install openjdk-8-jre
+
+# TODO
+RUN curl -L https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip > ijava-kernel.zip
+# Unpack and install the kernel
+RUN unzip ijava-kernel.zip -d ijava-kernel \
+  && cd ijava-kernel \
+  && python3 install.py --sys-prefix
+
 # Install .NET CLI dependencies
 RUN apt-get install -y --no-install-recommends \
         libc6 \
