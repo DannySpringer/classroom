@@ -21,7 +21,7 @@ RUN ([ -f requirements.txt ] \
         || pip3 install --no-cache-dir jupyter jupyterlab
 
 # TODO
-RUN apt-get install openjdk-8-jre
+RUN apt-get install -y openjdk-8-jre
 
 # TODO
 RUN curl -L https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip > ijava-kernel.zip
