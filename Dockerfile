@@ -13,6 +13,12 @@ WORKDIR ${HOME}
 USER root
 RUN apt-get update
 RUN apt-get install -y curl
+RUN apt-get install -y python3-pip
+
+COPY requirements.txt requirements.txt
+RUN ([ -f requirements.txt ] \
+    && pip3 install --no-cache-dir -r requirements.txt) \
+        || pip3 install --no-cache-dir jupyter jupyterlab
 
 # TODO
 RUN apt-get install openjdk-8-jre
